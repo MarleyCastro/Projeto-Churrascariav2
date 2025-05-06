@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churrasco Brasileiro - Sabor e Tradição</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url(img/backgrond.jpg);
+            background-size: cover;
+            height: 100vh;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1555939594-6e8f3cac7a4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+        
+        .meat-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .meat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .music-player {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .grill-animation {
+            position: relative;
+        }
+        
+        .grill-animation::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            animation: grill-shine 2s infinite;
+        }
+
+        .mr-4{
+            color: black;
+        }
+        
+         iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+        @keyframes grill-shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Hero Section -->
+    <section class="hero flex items-center justify-center text-center text-white">
+        <div class="container px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Churrasco do Passo</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Crocante, Macio e Delicioso</p>
+            
+            <div class="music-player inline-flex items-center p-3 px-6 rounded-full mb-8">
+                <button id="prevBtn" class="text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center mr-1">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <i class="fas fa-music text-yellow-600 text-2xl mx-2"></i>
+                <span id="musicTitle" class="mr-4">Samba de Roda - Tradicional</span>
+                <button id="playBtn" class="bg-yellow-600 text-white rounded-full w-10 h-10 flex items-center justify-center mx-1">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="nextBtn" class="text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center ml-1">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+            
+            <a href="#menu" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">
+                Conheça nosso cardápio
+            </a>
+            
+            <div class="absolute bottom-10 left-0 right-0 text-center">
+                <a href="#about" class="text-white animate-bounce inline-block">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Churrasco Econômia no Bolso</h2>
+                    <p class="text-lg mb-6 text-gray-600">
+                        O churrasco brasileiro é mais que uma refeição, é um ritual de confraternização que une amigos e família em torno do fogo. Com raízes na cultura gaúcha, essa tradição se espalhou por todo o Brasil, ganhando variações regionais que enriquecem ainda mais nossa culinária.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-600">
+                        Nossa equipe de mestres churrasqueiros domina as técnicas tradicionais, garantindo carnes suculentas, temperadas na medida certa e assadas no ponto perfeito para proporcionar uma experiência gastronômica inesquecível.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-fire mr-2"></i> Carne no ponto
+                        </div>
+                        <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-utensils mr-2"></i> Tradição gaúcha
+                        </div>
+                        <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-heart mr-2"></i> Feito com amor
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="grill-animation rounded-xl overflow-hidden shadow-xl">
+                        <img src="img/churrasqueira.jpeg"
+                            alt="Churrasco brasileiro" class="w-full rounded-xl">
+                    </div>
+                    <div class="absolute -bottom-5 -left-5 bg-yellow-600 text-white p-4 rounded-lg shadow-lg floating">
+                        <div class="text-2xl font-bold">Melhor Preço</div>
+                        <div class="text-sm">O cliente sai satsfeito</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Nosso Cardápio</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Selecionamos os melhores cortes para oferecer uma experiência completa do autêntico churrasco brasileiro
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Picanha -->
+                <div class="meat-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <a href="https://wa.me/11940567033">
+                            <img src="img/coração.webp"
+                                alt="Picanha" class="w-full h-full object-cover">
+                                                </div>
+                        </a>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Coração</h3>
+                            <span class="bg-yellow-100 text-yellow-800 text-sm px-3 py-1 rounded-full">Estrela do churrasco</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            O corte mais nobre e tradicional do churrasco brasileiro, macia e suculenta, com a capa de gordura que garante seu sabor inconfundível.
+                        </p><a href="https://wa.me/11940567033">
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-600 font-bold text-lg">R$ 7,00</span>
+                            
+                                <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-full text-sm transition duration-300">
+                                    Pedir agora
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Costela -->
+                <div class="meat-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <a href="https://wa.me/11940567033">
+                            <img src="img/tulipa-frango.webp"
+                                alt="Costela" class="w-full h-full object-cover">
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Tulípa</h3>
+                            <span class="bg-yellow-100 text-yellow-800 text-sm px-3 py-1 rounded-full">Lenta preparação</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Preparada lentamente para ficar macia e soltar os sabores mais profundos. Uma experiência que vale a espera.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-600 font-bold text-lg">R$ 7,00</span>
+                            <a href="https://wa.me/11940567033">
+                                <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-full text-sm transition duration-300">
+                                    Pedir agora
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fraldinha -->
+                <div class="meat-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <a href="https://wa.me/11940567033">
+                            <img src="img/espeto-linguiça.jpg"
+                                 alt="Fraldinha" class="w-full h-full object-cover">
+                                                </div>
+                        </a>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Fraldinha</h3>
+                            <span class="bg-yellow-100 text-yellow-800 text-sm px-3 py-1 rounded-full">Savor intenso</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Corte com fibras mais longas que garantem um sabor intenso e característico. Ideal para quem aprecia carnes com personalidade.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-600 font-bold text-lg">R$ 69,90/kg</span>
+                            <a href="https://wa.me/11940567033">
+                                <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-full text-sm transition duration-300">
+                                    Pedir agora
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300" onclick="clique()">
+                    Ver cardápio completo
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Nosso Churrasco</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Momentos especiais criados em torno do fogo e da boa carne
+                </p>
+            </div>
+            
+            <a href="https://wa.me/11940567033">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="img/churrasqueira.jpeg"
+                             alt="Churrasco" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="img/espetinho-footer.jpg"
+                             alt="Churrasco" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="img/espetinho-footer3.jpg"
+                             alt="Churrasco" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="img/espetinho-footer4.jpg"
+                             alt="Churrasco" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="img/espetinho-footer5.jpg"
+                             alt="Churrasco" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg">
+                        <img src="img/espetinho-footer6.jpg"
+                        alt="Churrasco" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                    </div>
+                </div>
+                        </div>
+            </a>
+    </section>
+
+    <iframe src="https://www.google.com/maps?q=Rua%20Munhoz&output=embed" allowfullscreen></iframe>
+    
+    <!-- Contact Section -->
+    <section class="py-20 bg-yellow-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Faça sua reserva</h2>
+                    <p class="text-lg mb-8">
+                        Garanta seu lugar para viver a experiência completa do autêntico churrasco brasileiro com música ao vivo e ambiente familiar.
+                    </p>
+                    <div class="flex flex-col space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
+                            <span>Cumbica, Guarulhos - São Paulo</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-2xl mr-4"></i>
+                            <span>+55 11 94056-7033</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-2xl mr-4"></i>
+                            <span>Sexta a Domingo 18h às 22h</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="bg-white text-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="name">Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="email">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="date">Data</label>
+                            <input type="date" id="date" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2" for="message">Mensagem</label>
+                            <textarea id="message" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Reservar agora
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4">Churrasco do Passp</h3>
+                    <p class="max-w-xs text-gray-400">
+                        Tradição, sabor e qualidade em cada pedaço. O verdadeiro churrasco gaúcho.
+                    </p>
+                </div>
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Início</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-yellow-500 transition duration-300">Sobre</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-yellow-500 transition duration-300">Cardápio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Galeria</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Horário de Funcionamento</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Terça - Quinta</span>
+                            <span>11h - 22h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sexta - Sábado</span>
+                            <span>11h - 23h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo</span>
+                            <span>11h - 20h</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/claudionor.correia" class="bg-gray-800 hover:bg-yellow-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/claudionor4985/" class="bg-gray-800 hover:bg-yellow-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/11940567033" class="bg-gray-800 hover:bg-yellow-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Churrasco do Passo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Music Player Script -->
+    <script>
+        // Brazilian music playlist (Samba, Bossa Nova, MPB)
+        const playlist = [
+            {
+                title: "Pixote - Nem de Graça",
+                src: "Pixote - Nem de Graça ⧸ Saudade Arregaça (Ao Vivo) - DVD Fã de Carteirinha Sunset.mp3"
+            },
+            {
+                title: "Pixote - Insegurança",
+                src: "Pixote - Insegurança (15 Anos)(Ao Vivo)(Vídeo Oficial).mp3"
+            },
+            {
+                title: "Zeca Pagodinho - Água Da Minha Sede.",
+                src: "Zeca Pagodinho - Água Da Minha Sede.mp3"
+            },
+            {
+                title: "Deixa Acontecer",
+                src: "music/Deixa Acontecer ⧸ Coração Radiante ⧸ Compasso Do Amor.mp3"
+            },
+        ];
+        
+        let currentTrack = 0;
+        let audio = new Audio(playlist[currentTrack].src);
+        let isPlaying = false;
+        
+        const playBtn = document.getElementById('playBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const playIcon = playBtn.querySelector('i');
+        const musicTitle = document.getElementById('musicTitle');
+        
+        // Update music title
+        musicTitle.textContent = playlist[currentTrack].title;
+        
+        // Play/Pause button functionality
+        playBtn.addEventListener('click', function() {
+            togglePlay();
+        });
+        
+        // Previous track button
+        prevBtn.addEventListener('click', function() {
+            changeTrack(-1);
+        });
+        
+        // Next track button
+        nextBtn.addEventListener('click', function() {
+            changeTrack(1);
+        });
+        
+        // When song ends, play next one
+        audio.addEventListener('ended', function() {
+            changeTrack(1);
+        });
+        
+        // Function to toggle play/pause
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                playIcon.className = 'fas fa-play';
+            } else {
+                audio.play();
+                playIcon.className = 'fas fa-pause';
+            }
+            isPlaying = !isPlaying;
+        }
+        
+        // Function to change track
+        function changeTrack(direction) {
+            currentTrack = (currentTrack + direction + playlist.length) % playlist.length;
+            audio.src = playlist[currentTrack].src;
+            musicTitle.textContent = playlist[currentTrack].title;
+            
+            if (isPlaying) {
+                audio.play();
+            }
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
